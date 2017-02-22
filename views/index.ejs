@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script
-    src="https://code.jquery.com/jquery-1.12.4.min.js"
-    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-    crossorigin="anonymous">
-  </script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+  <link rel="stylesheet" src="stylesheets/style.css" type="text/css" media="all" />
+  <script src="javascripts/utilities.js"></script>
+
   <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+
+  <!-- Graph API -->
+  <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+  <script src="https://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>
+  <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+  <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 </head>
 
 <body>
   <div id="react-root"></div>
   <div id="root"></div>
-  <script>
-  $.ajax({
-      url: 'https://api-rest-it.herokuapp.com/',
-      dataType: 'JSON',
-      type: 'GET',
-      success: function(data) {
-        alert(data);
-      }
-  });
-  </script>
+
+  <script src="javascripts/twitter-graph.js" type="text/babel"></script>
   <script src="javascripts/twitter.js" type="text/babel"></script>
 </body>
 
