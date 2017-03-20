@@ -10,7 +10,6 @@ var Twitter = React.createClass({
     componentDidMount: function(){
 
         // componentDidMount is called by react when the component
-        // has been rendered on the page. We can set the interval here:
         $.ajax({
             url: '/twitter-search',
             method: "GET",
@@ -18,16 +17,12 @@ var Twitter = React.createClass({
             data: {search: "node.js"},
             success: function(data)
             {
-              this.state.twitArray = parseTwitResponse(data);
-              for(var i = 0; i < this.state.twitArray.length; i++){
-                console.log(this.state.twitArray[i].text);
-              }
-
-              $(".amcharts-main-div").animate({
-                  height: '500px'
-              }, {
-                  duration: 1500  // 2 seconds
+              this.setState({
+                twitArray: parseTwitResponse(data)
               });
+              for(var i = 0; i < this.state.twitArray.length; i++){
+                //console.log(this.state.twitArray[i].text);
+              }
             }.bind(this)
         });
 
@@ -46,13 +41,37 @@ var Twitter = React.createClass({
     },
     handleClick: function(){
       console.log("Search: " + this.state.inputValue);
+      this.twitterSearch();
     },
     handleKeyPress: function(e){
       if (e.key === 'Enter') {
         console.log("Search: " + this.state.inputValue);
+        this.twitterSearch();
+        console.log("called function");
       }
     },
+    twitterSearch: function(){
+      console.log("Called function");
+      $.ajax({
+          url: '/twitter-search',
+          method: "GET",
+          dataType: "json",
+          data: {search: this.state.inputValue},
+          success: function(data)
+          {
+            this.setState({
+              twitArray: parseTwitResponse(data)
+            });
+            for(var i = 0; i < this.state.twitArray.length; i++){
+              console.log(this.state.twitArray[i].text);
+            }
+            this.forceUpdate();
+          }.bind(this)
+      });
+    },
+    mapUpdate: function(){
 
+    },
     render: function() {
         //var elapsed = Math.round(this.state.elapsed / 100);
         // This will give a number with one digit after the decimal dot (xx.x):
@@ -79,14 +98,15 @@ var Twitter = React.createClass({
 
         var inputStyle = {
           width: "70%",
-          height: 24
+          height: 24,
+          marginBottom: 30
         };
 
         return (
             <div style={divStyle} >
               <input style={inputStyle} value={this.state.inputValue} onChange={this.updateInputValue} onKeyPress={this.handleKeyPress} />
               <input style={buttonStyle} type="button" value="Search Twitter!" onClick={this.handleClick} />
-              <UsMap data={this.state.twitArray}/>
+              <UsMap data={this.state.twitArray} />
             </div>
         );
     },

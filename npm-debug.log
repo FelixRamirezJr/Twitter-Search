@@ -7,7 +7,7 @@
 6 silly lifecycle twitter-search@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle twitter-search@0.0.0~start: twitter-search@0.0.0
 8 verbose lifecycle twitter-search@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle twitter-search@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/felix/Desktop/personal_website/twitter-search/node_modules/.bin:/home/felix/.rvm/gems/ruby-2.3.0/bin:/home/felix/.rvm/gems/ruby-2.3.0@global/bin:/home/felix/.rvm/rubies/ruby-2.3.0/bin:/home/felix/.rbenv/plugins/ruby-build/bin:/home/felix/.rbenv/shims:/home/felix/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/felix/.rvm/bin:/snap/bin
+9 verbose lifecycle twitter-search@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/felix/Desktop/personal_website/twitter-search/node_modules/.bin:/home/felix/.rvm/gems/ruby-2.3.0/bin:/home/felix/.rvm/gems/ruby-2.3.0@global/bin:/home/felix/.rvm/rubies/ruby-2.3.0/bin:/home/felix/.rbenv/plugins/ruby-build/bin:/home/felix/.rbenv/shims:/home/felix/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/felix/.rvm/bin
 10 verbose lifecycle twitter-search@0.0.0~start: CWD: /home/felix/Desktop/personal_website/twitter-search
 11 silly lifecycle twitter-search@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle twitter-search@0.0.0~start: Returned: code: 1  signal: null

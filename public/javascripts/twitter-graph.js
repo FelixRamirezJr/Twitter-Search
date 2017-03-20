@@ -5,9 +5,38 @@ var UsMap = React.createClass({
   },
 
   componentDidMount: function(){
+    this.setState({ map: true, twitArray: this.props.data });
     this.createMap();
+    $(".amcharts-main-div").animate({
+        height: '500px'
+    }, {
+        duration: 1500  // 2 seconds
+    });
   },
 
+  handleChange: function(){
+    console.log('change!!');
+  },
+  componentDidUpdate: function(prevProp,prevState){
+    //console.log(this.props.data);
+    if(this.state.twitArray == undefined || this.state.twitArray.length <= 0)
+    {
+      this.state.twitArray = this.props.data;
+    }
+    if(JSON.stringify(prevState.twitArray) != JSON.stringify(this.props.data) )
+    {
+      console.log('Different Now Update Map!');
+      this.setState({ twitArray: this.props.state });
+      $('#chartdiv').html('');
+
+      this.createMap();
+      $(".amcharts-main-div").animate({
+          height: '500px'
+      }, {
+          duration: 1500  // 2 seconds
+      });
+    }
+  },
   createMap: function(){
     var map = AmCharts.makeChart( "chartdiv", {
       "type": "map",
@@ -187,11 +216,7 @@ var UsMap = React.createClass({
   },
 
   render() {
-    if(this.props.data.length > 0)
-    {
-      this.state.twitArray = this.props.data;
-    }
-    return <div id="chartdiv"></div>;
+    return <div id="chartdiv"> </div>;
   },
 
 });

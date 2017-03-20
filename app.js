@@ -42,7 +42,7 @@ app.get('/twitter-search', function(req, res, next) {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       if (error)
       {
-          res.emd(JSON.stringify("Error"));
+          res.end(JSON.stringify("Error"));
       }
 
       if (result)
