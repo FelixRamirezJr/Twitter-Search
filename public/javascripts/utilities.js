@@ -16,7 +16,13 @@ function parseTwitResponse(data){
 
   for(i = 0; i < twitArray.length; i++)
   {
-    //console.log(twitArray[i].text);
+    console.log(twitArray[i]);
   }
   return twitArray;
+}
+
+function getUSCities(data){
+  for(var i = 0; i < this.state.twitArray.length; i++){
+    console.log(this.state.twitArray[i].text);
+  }
 }
