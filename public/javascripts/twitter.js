@@ -4,7 +4,7 @@ var Twitter = React.createClass({
 
         // This is called before our render function. The object that is
         // returned is assigned to this.state, so we can use it later.
-        return {dataSent: 0, inputValue: "", twitArray: []}
+        return {dataSent: 0, inputValue: "", mapData: []}
     },
 
     componentDidMount: function(){
@@ -18,10 +18,10 @@ var Twitter = React.createClass({
             success: function(data)
             {
               this.setState({
-                twitArray: parseTwitResponse(data)
+                mapData: parseTwitResponse(data)
               });
-              for(var i = 0; i < this.state.twitArray.length; i++){
-                //console.log(this.state.twitArray[i].text);
+              for(var i = 0; i < this.state.mapData.length; i++){
+                //console.log(this.state.mapData[i].text);
               }
             }.bind(this)
         });
@@ -60,10 +60,10 @@ var Twitter = React.createClass({
           success: function(data)
           {
             this.setState({
-              twitArray: parseTwitResponse(data)
+              mapData: parseTwitResponse(data)
             });
-            for(var i = 0; i < this.state.twitArray.length; i++){
-              console.log(this.state.twitArray[i].text);
+            for(var i = 0; i < this.state.mapData.length; i++){
+              //console.log(this.state.mapData[i].text);
             }
             this.forceUpdate();
           }.bind(this)
@@ -106,7 +106,7 @@ var Twitter = React.createClass({
             <div style={divStyle} >
               <input style={inputStyle} value={this.state.inputValue} onChange={this.updateInputValue} onKeyPress={this.handleKeyPress} />
               <input style={buttonStyle} type="button" value="Search Twitter!" onClick={this.handleClick} />
-              <UsMap data={this.state.twitArray} />
+              <UsMap data={this.state.mapData} />
             </div>
         );
     },
