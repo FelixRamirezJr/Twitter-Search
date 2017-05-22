@@ -38,9 +38,9 @@ var UsMap = React.createClass({
     }
   },
   createMap: function(){
-    var areas = friendlyAreaFormat(this.state.mapData);
+    var areasHash = friendlyAreaFormat(this.state.mapData);
     console.log(this.state.mapData);
-    console.log(areas);
+    console.log(areasHash);
     var map = AmCharts.makeChart( "chartdiv", {
       "type": "map",
       "theme": "light",
@@ -48,7 +48,7 @@ var UsMap = React.createClass({
 
       "dataProvider": {
         "map": "usaLow",
-        "areas": areas
+        "areas": areasHash["areas"]
       },
 
       "areasSettings": {
@@ -57,8 +57,8 @@ var UsMap = React.createClass({
 
       "valueLegend": {
         "right": 10,
-        "minValue": "little",
-        "maxValue": "a lot!"
+        "minValue": areasHash["min"],
+        "maxValue": areasHash["max"]
       },
 
       "export": {

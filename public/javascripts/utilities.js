@@ -19,7 +19,7 @@ function parseTwitResponse(data){
   var mapData = new MapData();
   var currMax = 0;
   var currMin = 0;
-  
+
   for (i=0;i<data.statuses.length;i++)
   {
       var tempTwit = new TwitObject(data.statuses[i].text,
@@ -165,13 +165,29 @@ function friendlyAreaFormat(mapData){
     return false;
   }
   var hash = mapData.us_state;
+  var min = 0;
+  var max = 0;
+  var i = 0;
   Object.keys(hash).forEach(function (key)
   {
       var value = hash[key];
       var tempVal = {"id": key, "value": value};
       console.log(key + ": " + value);
       arrayOfHashes.push(tempVal);
-      // iteration code
+
+      if(i == 0){ max = value; min = value;}
+      if( value > max ){
+        max = value;
+      }
+      if(value < min){
+        min = value;
+      }
+      i++;
   });
-  return arrayOfHashes;
+  var returnHash = {};
+  returnHash["areas"] = arrayOfHashes;
+  returnHash["max"] = max;
+  returnHash["min"] = min;
+
+  return returnHash;
 }
